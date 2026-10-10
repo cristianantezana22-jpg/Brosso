@@ -1,0 +1,30 @@
+:host { display: block; }
+
+.card__imagen {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+
+  img { max-height: 85%; object-fit: contain; }
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0.2rem;
+
+  h3 { font-family: var(--font-titulo); font-weight: 400; font-size: 1.15rem; color: var(--rojo); }
+  p { font-weight: 800; }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background: var(--naranja);
+    color: #111;
+    font-weight: 800;
+
+    &:hover { background: var(--amarillo); }
+  }
+}

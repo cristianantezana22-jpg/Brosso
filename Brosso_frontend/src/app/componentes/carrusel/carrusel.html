@@ -1,0 +1,16 @@
+<section class="hero" aria-roledescription="carrusel" aria-label="Destacados">
+  @for (slide of slides; track slide.src; let i = $index) {
+    <img class="hero__slide" [class.hero__slide--activo]="i === actual()" [src]="slide.src" [alt]="slide.alt" [attr.aria-hidden]="i !== actual()" />
+  }
+
+  <img class="hero__logo" src="images/logo.png" alt="Logo Brosso" />
+
+  @if (slides.length > 1) {
+    <button class="hero__flecha hero__flecha--izq" (click)="anterior()" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg>
+    </button>
+    <button class="hero__flecha hero__flecha--der" (click)="siguiente()" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+    </button>
+  }
+</section>

@@ -1,0 +1,32 @@
+<header class="navbar">
+  <nav class="navbar__links" [class.navbar__links--abierto]="menuAbierto()" aria-label="Principal">
+    @for (enlace of enlaces; track enlace.href) {
+      <a [href]="enlace.href" (click)="cerrarMenu()">{{ enlace.texto }}</a>
+    }
+  </nav>
+
+  <div class="navbar__acciones">
+    <button class="navbar__icono" [attr.aria-label]="'Carrito, ' + cantidadCarrito() + ' productos'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 3h3l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 7H6" />
+        <circle cx="9" cy="19.5" r="1.5" /><circle cx="17" cy="19.5" r="1.5" />
+      </svg>
+      @if (cantidadCarrito() > 0) {
+        <span class="navbar__badge">{{ cantidadCarrito() }}</span>
+      }
+    </button>
+
+    <button class="navbar__icono" aria-label="Mi cuenta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" /><circle cx="12" cy="10" r="3.2" />
+        <path d="M5.5 18.5c1.5-3 4-4 6.5-4s5 1 6.5 4" />
+      </svg>
+    </button>
+
+    <button class="navbar__icono navbar__hamburguesa" aria-label="Abrir menú" [attr.aria-expanded]="menuAbierto()" (click)="alternarMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+      </svg>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,27 @@
+<div class="catbar">
+  <span class="catbar__etiqueta">Catálogo</span>
+
+  <label class="catbar__buscador">
+    <svg class="catbar__lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+    </svg>
+    <input type="search" [value]="busqueda()" (input)="alBuscar($event)" placeholder="Buscar producto" aria-label="Buscar producto" />
+  </label>
+
+  <div class="catbar__filtro">
+    <button class="catbar__filtro-btn" (click)="abierto.set(!abierto())" [attr.aria-expanded]="abierto()">
+      <svg class="catbar__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" /><path d="M12 7v10m-4-4 4 4 4-4" />
+      </svg>
+      <span>Filtrar por: {{ categoria() }}</span>
+    </button>
+
+    @if (abierto()) {
+      <ul class="catbar__opciones">
+        @for (c of categorias(); track c) {
+          <li><button [class.activo]="c === categoria()" (click)="elegir(c)">{{ c }}</button></li>
+        }
+      </ul>
+    }
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<section class="catalogo" id="catalogo">
+  <h2 class="catalogo__titulo">Nuestros Productos</h2>
+
+  <app-barra-catalogo class="catalogo__barra" [categorias]="categorias" [(busqueda)]="busqueda" [(categoria)]="categoria" />
+
+  @if (filtrados().length === 0) {
+    <p class="catalogo__vacio">No encontramos productos. Prueba con otra búsqueda o categoría.</p>
+  } @else {
+    <div class="catalogo__grilla">
+      @for (p of filtrados(); track p.id) {
+        <app-producto-card [producto]="p" (agregar)="agregar.emit($event)" />
+      }
+    </div>
+  }
+</section>

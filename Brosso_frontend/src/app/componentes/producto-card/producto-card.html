@@ -1,0 +1,12 @@
+<article class="card">
+  <div class="card__imagen" [style.background]="producto().fondo">
+    <img [src]="producto().imagen" [alt]="producto().nombre" loading="lazy" />
+  </div>
+  <div class="card__info">
+    <div>
+      <h3>{{ producto().nombre }}</h3>
+      <p>Bs. {{ producto().precio }}</p>
+    </div>
+    <button (click)="agregar.emit(producto())">Agregar</button>
+  </div>
+</article>

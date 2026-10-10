@@ -1,11 +1,19 @@
 import { Component, signal } from '@angular/core';
+import { Header } from './componentes/header/header';
+import { Carrusel } from './componentes/carrusel/carrusel';
+import { Catalogo } from './componentes/catalogo/catalogo';
+import { Producto } from './datos/productos';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [Header, Carrusel, Catalogo],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('Brosso_frontend');
+  carrito = signal<Producto[]>([]);
+
+  agregar(producto: Producto) {
+    this.carrito.update((lista) => [...lista, producto]);
+  }
 }

@@ -1,0 +1,31 @@
+:host { display: block; }
+
+.catalogo {
+  padding: 2rem 1.5rem 4rem;
+  /* Patron de fondo: public/images/patron-fondo.png */
+  background: var(--crema) url('/images/patron-fondo.png') repeat;
+}
+
+.catalogo__titulo {
+  font-family: var(--font-titulo);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--naranja);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.catalogo__barra {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.catalogo__grilla {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.catalogo__vacio { text-align: center; font-weight: 600; padding: 2rem 0; }

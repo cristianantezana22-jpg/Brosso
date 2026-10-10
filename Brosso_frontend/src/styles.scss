@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --azul: #1b2536;
+  --rojo: #a62626;
+  --naranja: #f5821f;
+  --amarillo: #e9bb47;
+  --crema: #fbf8f4;
+  --texto: #2a2a2a;
+  --font-titulo: 'Alfa Slab One', Georgia, serif;
+  --font-cuerpo: 'Nunito', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-cuerpo);
+  color: var(--texto);
+  background: var(--crema);
+}
+
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
